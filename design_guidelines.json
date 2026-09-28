@@ -1,0 +1,245 @@
+{
+  "project_title": "Saket & Neha's 25th Wedding Anniversary - Cinematic Invitation Experience",
+  "app_type": "cinematic_invitation_experience",
+  "design_archetype": "LUXURY_EDITORIAL_CINEMATIC",
+  "theme": "Dark / High-Contrast Luxury transitioning to Warm Tropical, Gold & Velvet",
+  "typography": {
+    "font_family_imports": [
+      "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Outfit:wght@200;300;400;500;600;700&family=Cinzel:wght@400;600;700;900&display=swap"
+    ],
+    "headings": {
+      "family": "'Cormorant Garamond', 'Cinzel', serif",
+      "style": "editorial serif, high optical contrast, uppercase or tracking-wide title casing",
+      "hero_h1": "text-4xl sm:text-5xl lg:text-6xl font-serif tracking-tight font-light uppercase text-amber-100",
+      "section_h2": "text-2xl sm:text-3xl lg:text-4xl font-serif tracking-normal text-amber-200/90",
+      "card_h3": "text-xl sm:text-2xl font-serif tracking-wide text-amber-50"
+    },
+    "body": {
+      "family": "'Outfit', sans-serif",
+      "style": "clean, geometric, ultra-legible fashion editorial sans",
+      "size_base": "text-base font-light text-slate-300 leading-relaxed",
+      "size_small": "text-sm tracking-wide text-slate-400 font-normal"
+    },
+    "labels_and_nav": {
+      "family": "'Cinzel', 'Outfit', sans-serif",
+      "style": "uppercase, tracking-[0.25em] text-xs font-medium text-amber-300/80"
+    },
+    "rules": [
+      "NEVER use generic Inter, Roboto, or cursive wedding script fonts for headlines.",
+      "Titles should feature high contrast letter-spacing (tracking-[0.2em] to tracking-[0.3em] for overlines).",
+      "Maximum H1 font size is text-6xl to preserve elegance and mobile responsiveness."
+    ]
+  },
+  "color_palette": {
+    "opening_sequence": {
+      "bg": "#070708",
+      "envelope_surface": "#120B0E",
+      "velvet_accents": "#4A0E17",
+      "gold_primary": "#D4AF37",
+      "gold_glow": "rgba(212, 175, 55, 0.4)",
+      "text": "#FDFBF7"
+    },
+    "tab1_goa_dresscode": {
+      "bg": "#0B131F",
+      "surface": "#142032",
+      "cream_gold": "#F7F0E6",
+      "tropical_amber": "#E5A93C",
+      "ocean_blue": "#1B3B5F",
+      "accent": "#CCA43B"
+    },
+    "tab2_sufi_night": {
+      "bg": "#050505",
+      "surface": "#111111",
+      "gold_starburst": "#FFD700",
+      "candlelight_orange": "#E08030",
+      "text_pure": "#FFFFFF"
+    },
+    "tab3_pool_party_masquerade": {
+      "pool_turquoise": "#0093B2",
+      "pool_bg": "#051A24",
+      "masquerade_bg": "#0A0306",
+      "masquerade_wine": "#580C1E",
+      "masquerade_gold": "#E2B755"
+    }
+  },
+  "opening_sequence_spec": {
+    "title": "THE SEALED INVITATION",
+    "stages": [
+      {
+        "stage": 1,
+        "name": "Envelope Arrival",
+        "description": "Deep black backdrop (#070708) with subtle crimson velvet gradient ambient light. Centered black textured 3D envelope with gold foil border and gold wax seal monogrammed 'S & N — XXV'."
+      },
+      {
+        "stage": 2,
+        "name": "Wax Seal Break",
+        "description": "User clicks/taps the wax seal or 'Break Seal' prompt. Golden light bursts, seal splits with particle effects, and flap unfolds vertically."
+      },
+      {
+        "stage": 3,
+        "name": "Card Reveal & Live Countdown",
+        "description": "Card slides upwards with smooth spring physics. Displays '60 DAYS TO GO / Saket & Neha / 25 Years of Love' alongside a live ticking countdown timer (Days, Hours, Minutes, Seconds until 5 Dec 2026)."
+      },
+      {
+        "stage": 4,
+        "name": "The Call To Action",
+        "description": "Tagline fades in: 'An unforgettable celebration awaits…' followed by the signature gold-outline button 'OPEN INVITATION'."
+      }
+    ],
+    "open_button_style": {
+      "border": "1px solid #D4AF37",
+      "background": "radial-gradient(ellipse at center, rgba(212,175,55,0.15) 0%, rgba(0,0,0,0.8) 100%)",
+      "text": "text-amber-200 uppercase tracking-[0.3em] font-serif text-sm",
+      "hover": "scale-105 border-amber-300 shadow-[0_0_25px_rgba(212,175,55,0.5)] transition-all duration-500"
+    }
+  },
+  "navigation_system": {
+    "style": "Minimal floating glassmorphic nav bar, fixed top z-50 with backdrop blur (backdrop-blur-xl bg-black/60 border border-amber-500/20)",
+    "tabs": [
+      {
+        "id": "tab-1",
+        "label": "01 — DRESS CODE",
+        "state": "UNLOCKED",
+        "route_key": "dress-code"
+      },
+      {
+        "id": "tab-2",
+        "label": "02 — 5 DECEMBER",
+        "state": "LOCKED",
+        "unlock_date": "2026-11-06T00:00:00Z",
+        "lock_message": "Oops... You'll have to wait a little more.",
+        "lock_subtext": "Sufi Night itinerary unlocks on 6 November 2026."
+      },
+      {
+        "id": "tab-3",
+        "label": "03 — 6 DECEMBER",
+        "state": "LOCKED",
+        "unlock_date": "2026-11-20T00:00:00Z",
+        "lock_message": "Oops... You'll have to wait a little more.",
+        "lock_subtext": "Pool Party & Masquerade Ball itinerary unlocks on 20 November 2026."
+      }
+    ],
+    "lock_state_modal": "Clicking locked tab reveals a luxury dark velvet modal with gold padlock animation, 'Oops... You'll have to wait a little more.' title, live countdown timer to unlock date, and a preview 'Unlock Preview' demo toggle for testing."
+  },
+  "tab_content_specs": {
+    "tab_1_dress_code": {
+      "theme_name": "Goan Luxury Tropical",
+      "bg": "bg-gradient-to-b from-[#070D14] via-[#0D1C2E] to-[#08121E]",
+      "sections": [
+        {
+          "title": "Welcome to Goa",
+          "type": "Parallax Hero",
+          "description": "High-resolution aerial Goa resort imagery with floating golden palms and ocean mist parallax effects."
+        },
+        {
+          "title": "Day 1 — Indo-Western Yellow",
+          "date": "5th December 2026 | Afternoon",
+          "description": "Sunshine yellow, ivory, ochre tones, light linens, flowy silks. Editorial fashion card with warm golden glow."
+        },
+        {
+          "title": "Day 2 — Morning Reveal",
+          "date": "6th December 2026 | Morning",
+          "status": "Mysterious Blurred Card",
+          "description": "Glassmorphic frosted card displaying 'Will be revealed the same day'. Secret surprise dress code teaser."
+        },
+        {
+          "title": "Day 2 — Evening Extravaganza",
+          "date": "6th December 2026 | Sunset",
+          "description": "Black Tuxedo for Men / Crimson Red Gown for Women. Velvet night luxury mood card with gold embroidery accents."
+        },
+        {
+          "title": "Grand Closing Banner",
+          "text": "TWO DAYS. ONE UNFORGETTABLE CELEBRATION.",
+          "style": "Text-6xl Cormorant Garamond font with liquid gold stroke and subtle particle float."
+        }
+      ]
+    },
+    "tab_2_sufi_night": {
+      "theme_name": "Sufi Night — 5th December",
+      "bg": "bg-[#050505]",
+      "visuals": "Candlelight ambient particle canvas, gold dust floating, Sufi poetry excerpts in elegant typography, event timeline (7:30 PM Onwards), luxury venue spotlight, RSVP confirmation widget."
+    },
+    "tab_3_pool_party_masquerade": {
+      "theme_name": "6th December Double Celebration",
+      "part_1": {
+        "title": "Bihari Pool Party",
+        "time": "11:00 AM — Tropical Poolside",
+        "vibe": "Bright turquoise, ocean blues, tropical fiesta, energetic music, bespoke cocktail menu preview."
+      },
+      "part_2": {
+        "title": "The Masquerade Ball",
+        "time": "7:00 PM — Grand Ballroom",
+        "vibe": "Black, wine red, gold Venetian masks, high fashion, candlelit ballroom, live orchestra vibe."
+      },
+      "part_3": {
+        "title": "Final Closing Screen",
+        "text": "SAKET & NEHA / XXV / 25 years of love... / 5–6 DECEMBER 2026 / GOA",
+        "cta": "Add to Calendar (.ics download / Google Calendar link) & Interactive Memory Guestbook / Blessing RSVP"
+      }
+    }
+  },
+  "interactive_and_ambient_features": {
+    "ambient_sound": {
+      "enabled": true,
+      "audio_type": "Royalty-free subtle ambient lounge / Sufi instrumental mix",
+      "control_button": "Floating glass audio toggle on bottom right (Mute/Unmute audio with equalizer visualizer animation)"
+    },
+    "reduced_motion": {
+      "support": "CSS @media (prefers-reduced-motion: reduce) overrides animations to gentle fade-ins and disables parallax scrolling."
+    },
+    "interactive_extras": {
+      "memory_blessing_form": "Allows guests to write a celebratory blessing message for Saket & Neha with instant golden confetti burst.",
+      "countdown_timer": "High precision countdown ticker showing exact time left till 5 December 2026.",
+      "calendar_integration": "One-click 'Add 25th Anniversary to Google Calendar' button."
+    }
+  },
+  "image_urls": [
+    {
+      "category": "goa_resort_hero",
+      "url": "https://images.unsplash.com/photo-1740688244415-1633374a597b?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "description": "Aerial view of a luxury tropical Goa ocean beach at sunset"
+    },
+    {
+      "category": "masquerade_ball",
+      "url": "https://images.unsplash.com/photo-1585307128327-8d3436f289eb?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "description": "Woman in black and white dress wearing ornate gold mask"
+    },
+    {
+      "category": "masquerade_feather_mask",
+      "url": "https://images.unsplash.com/photo-1696592004482-df127bcf16d1?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "description": "Luxury gold and black masquerade mask with feathers"
+    },
+    {
+      "category": "goa_ocean_sunset",
+      "url": "https://images.unsplash.com/photo-1698809807960-758cf416e96e?crop=entropy&cs=srgb&fm=jpg&q=85",
+      "description": "Vibrant Goa sunset over calm ocean waters"
+    }
+  ],
+  "required_npm_dependencies": [
+    "framer-motion",
+    "gsap",
+    "@gsap/react",
+    "lenis",
+    "lucide-react",
+    "canvas-confetti",
+    "howler"
+  ],
+  "instructions_to_main_agent": [
+    "Install missing animation/audio dependencies using yarn (e.g. `yarn add framer-motion gsap @gsap/react lenis lucide-react canvas-confetti howler`).",
+    "Update `public/index.html` to include Google Fonts for 'Cormorant Garamond', 'Cinzel', and 'Outfit'.",
+    "Build the complete experience in React JS with smooth Lenis scroll and Framer Motion / GSAP triggers.",
+    "Implement the Opening Sequence 'THE SEALED INVITATION' as the default view until opened, with state saved in localStorage or React state.",
+    "Ensure all buttons, tabs, inputs, lock toggles, audio buttons, and cards include proper `data-testid` attributes (e.g., `data-testid='open-invitation-btn'`, `data-testid='tab-dress-code'`).",
+    "Ensure total mobile and desktop responsiveness with APCA accessible contrast levels."
+  ],
+  "UNIVERSAL GUIDELINES FOR MAIN AGENT": [
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur).",
+    "You MUST NOT apply universal transition (e.g., transition: all). Always specify transitions.",
+    "You MUST NOT center align the app container in CSS.",
+    "Never use generic AI emojis like 🤖🧠💭💡🔮 for icons. Use Lucide icons.",
+    "Use generous spacing (2-3x typical padding) to create breathing room.",
+    "All interactive and key informational elements MUST include data-testid attribute."
+  ]
+}

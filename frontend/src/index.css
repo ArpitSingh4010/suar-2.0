@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --gold: #d4af37;
+    --gold-2: #e2b755;
+    --gold-soft: #f6e2a1;
+    --cream: #f7f0e6;
+    --sand: #f3e6c9;
+    --wine: #580c1e;
+    --crimson: #4a0e17;
+    --ink: #070708;
+    --navy: #0b131f;
+    --ocean: #1b3b5f;
+    --amber: #e5a93c;
+    --turquoise: #0093b2;
+    --background: 0 0% 3%;
+    --foreground: 36 45% 94%;
+    --border: 43 65% 52%;
+    --radius: 0px;
+}
+
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+html {
+    background: var(--ink);
+}
+
+body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--cream);
+    font-family: "Outfit", sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+::selection {
+    background: rgba(212, 175, 55, 0.35);
+    color: #fff;
+}
+
+.font-serif {
+    font-family: "Cormorant Garamond", Georgia, serif;
+}
+.font-display {
+    font-family: "Cinzel", "Cormorant Garamond", serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+}
