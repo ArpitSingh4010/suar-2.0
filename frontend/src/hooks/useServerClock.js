@@ -1,62 +1,67 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { fetchTime } from "../lib/api";
 
-const UNLOCK_FALLBACK = Date.UTC(2026, 10, 5, 18, 30, 0);
-const EVENT_FALLBACK = Date.UTC(2026, 11, 4, 18, 30, 0);
+const CLOSED = { location: { unlocked: true }, dress: { unlocked: false }, sufi: { unlocked: false }, daysix: { unlocked: false } };
 
 export function useServerClock() {
-  const previewKey = useMemo(() => {
-    const p = new URLSearchParams(window.location.search).get("preview");
-    if (p) sessionStorage.setItem("xxv-preview", p);
-    return p || sessionStorage.getItem("xxv-preview") || "";
-  }, []);
-
-  const [sync, setSync] = useState({
-    offset: 0,
-    unlockAt: UNLOCK_FALLBACK,
-    eventAt: EVENT_FALLBACK,
-    serverUnlocked: false,
-    daysToGo: null,
-    synced: false,
-  });
-  const [tick, setTick] = useState(Date.now());
+  const [sync, setSync] = useState(null);
+  const [error, setError] = useState(false);
+  const [tick, setTick] = useState(performance.now());
 
   useEffect(() => {
     let alive = true;
+    let timer;
+    let inFlight = false;
     const run = async () => {
+      if (inFlight) return;
+      inFlight = true;
+      clearTimeout(timer);
+      let delay = 60000;
       try {
-        const t0 = Date.now();
-        const data = await fetchTime(previewKey);
-        const serverMs = new Date(data.server_time).getTime() + (Date.now() - t0) / 2;
+        const start = performance.now();
+        const data = await fetchTime();
+        const received = performance.now();
+        const serverMs = Date.parse(data.server_time) + (received - start) / 2;
         if (!alive) return;
-        setSync({
-          offset: serverMs - Date.now(),
-          unlockAt: new Date(data.unlock_at).getTime(),
-          eventAt: new Date(data.event_at).getTime(),
-          serverUnlocked: data.unlocked,
-          daysToGo: data.days_to_go,
-          synced: true,
-        });
-      } catch (e) {
-        console.error("time sync failed", e);
+        setSync({ ...data, serverMs, received });
+        setTick(received);
+        setError(false);
+        const boundaries = Object.values(data.tabs).filter(t => !t.unlocked && t.unlock_at)
+          .map(t => Date.parse(t.unlock_at) - serverMs + 100);
+        if (boundaries.length) delay = Math.min(delay, Math.max(250, Math.min(...boundaries)));
+      } catch {
+        if (alive) setError(true);
+        delay = 10000;
+      } finally {
+        inFlight = false;
+        if (alive) timer = setTimeout(run, delay);
       }
     };
+    const visible = () => { if (document.visibilityState === "visible") run(); };
     run();
-    const id = setInterval(run, 60_000);
+    window.addEventListener("online", run);
+    document.addEventListener("visibilitychange", visible);
     return () => {
       alive = false;
-      clearInterval(id);
+      clearTimeout(timer);
+      window.removeEventListener("online", run);
+      document.removeEventListener("visibilitychange", visible);
     };
-  }, [previewKey]);
-
-  useEffect(() => {
-    const id = setInterval(() => setTick(Date.now()), 1000);
-    return () => clearInterval(id);
   }, []);
 
-  const now = tick + sync.offset;
-  const unlocked = sync.serverUnlocked || (sync.synced && now >= sync.unlockAt);
-  const daysToGo = sync.daysToGo ?? Math.max(0, Math.ceil((sync.eventAt - now) / 86_400_000));
+  useEffect(() => {
+    const timer = setInterval(() => setTick(performance.now()), 1000);
+    return () => clearInterval(timer);
+  }, []);
 
-  return { now, unlocked, daysToGo, unlockAt: sync.unlockAt, synced: sync.synced, previewKey };
+  // A monotonic clock keeps the countdown smooth even if the device date changes.
+  // Access is NEVER inferred from this countdown: only the server's flags grant it.
+  const now = sync ? sync.serverMs + Math.max(0, tick - sync.received) : null;
+  const eventAt = sync ? Date.parse(sync.event_at) : null;
+  const tabs = error ? CLOSED : sync?.tabs || CLOSED;
+  return {
+    now, eventAt, tabs, error, synced: !!sync,
+    daysToGo: now === null ? null : Math.max(0, Math.ceil((eventAt - now) / 86400000)),
+    unlocked: tabs.sufi.unlocked,
+  };
 }

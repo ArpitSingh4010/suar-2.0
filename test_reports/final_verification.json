@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-04",
+  "status": "pass",
+  "scope": "Four-stage invitation navigation, two backend release dates, larger text, timer-free Candle/seal opening with Skip and delayed CTA, Feather ceremony, horizontal overflow and regression fixes",
+  "build": "yarn build passed",
+  "backend": {
+    "testing_agent_full_suite": "15/15 passed",
+    "final_isolated_release_boundary_rerun": "10/10 passed",
+    "actual_preview_endpoints": "time correct; dress-code and events HTTP423 before respective release dates"
+  },
+  "frontend": {
+    "viewports": ["1920x800", "390x844"],
+    "opening": "No numerical countdown. Lit candle moves upper-left, never overlaps envelope. Gold seal fractures and separates. CTA absent until completion. Top-right Skip reaches finished invitation. Both normal and skipped entry work.",
+    "future_dates": "SIMULATED only in isolated browser routes. Final regression uses exact EVENTS/DRESS_CODE content and imagery from backend source. No app bypass or mocked API shipped.",
+    "rapid_navigation": "Direct Sufi-to-DaySix header selection passes three repetitions on each viewport, including selection during preceding transition.",
+    "feather": "Monogram and title opacity1, full title hold before fade, desktop/mobile screenshots verified. Continue exits and main becomes interactive.",
+    "overflow": "Empty horizontal-overflow offender lists for all four dress scenes, pool, masquerade and feather at desktop/mobile; public Location and opening also checked.",
+    "device_clock": "Real API +180-day Date.now change keeps three tabs locked. Correct Oct22 modal; inert true while open and false after close; runtime errors[].",
+    "clock_test_isolation": "Preview analytics blocked only in test browser to avoid third-party instrumentation recursion when changing Date.now. No app changes for test workaround."
+  },
+  "resolved_iteration_1_findings": [
+    "Ignored nav click while pending transition: cancel superseded transition timers and honour most recent selection.",
+    "React inert empty-string warning: use Boolean prop.",
+    "Inconclusive Date override test: isolated analytics and used post-navigation ticking clock offset; final test passes."
+  ],
+  "additional_fix": "Feather fade now explicitly starts at leave label, preserving the full 2.5-second completed-card hold.",
+  "evidence_directories": [
+    "/root/.emergent/automation_output/20261004_110654",
+    "/root/.emergent/automation_output/20261004_112500",
+    "/root/.emergent/automation_output/20261004_113857"
+  ],
+  "outstanding_product_bugs": [],
+  "next_action": "User visual review of animation pacing. Optional future venue directions."
+}

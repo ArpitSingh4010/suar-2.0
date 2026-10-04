@@ -4,6 +4,10 @@
     min-height: 100vh;
     background: var(--ink);
 }
+#main,
+.page {
+    overflow-x: clip;
+}
 
 .grain {
     pointer-events: none;
@@ -1141,8 +1145,11 @@
     .sound-label { display: none; }
     .sound-toggle { padding: 0.5rem 0.6rem; }
 
-    .goa-copy { left: 5vw; bottom: 9vh; }
-    .goa-title { font-size: clamp(4.5rem, 28vw, 9rem); }
+    .goa-copy { left: 5vw; bottom: 9vh; max-width: 90vw; }
+    .goa-eyebrow { font-size: 0.58rem; letter-spacing: 0.24em; }
+    .goa-sub { font-size: 0.56rem; letter-spacing: 0.18em; }
+    .goa-title { font-size: clamp(4.5rem, 26vw, 9rem); }
+    .eyebrow { letter-spacing: 0.24em; }
 
     .dci-grid { grid-template-columns: 1fr; grid-template-rows: auto 1fr; gap: 1.5rem; padding: 12vh 6vw 6vh; align-items: start; }
     .dci-frame { height: auto; min-height: 0; order: -1; max-height: 34vh; }
@@ -1166,7 +1173,6 @@
 
     .sufi-img2 { width: 62vw; height: 46vh; top: 10vh; }
     .sufi-type { left: 5vw; bottom: 9vh; max-width: 90vw; }
-    .sufi-title { font-size: clamp(3rem, 15vw, 5.5rem); letter-spacing: 0.08em; }
 
     .pool-decor { width: 38vw; bottom: 36vh; left: 5vw; }
     .pool-type { right: 5vw; left: 5vw; text-align: left; bottom: 8vh; max-width: none; }

@@ -17,7 +17,7 @@ export const PoolParty = ({ data, maskSrc }) => {
     tl.fromTo(q(".pool-sky"), { opacity: 0 }, { opacity: 1, duration: 0.8 }, 0)
       .to(q(".pool-hint"), { opacity: 0, duration: 0.2 }, 0.1)
       .fromTo(q(".pool-water"), { yPercent: 100 }, { yPercent: 0, duration: 1.4 }, 0.5)
-      .fromTo(q(".pool-main"), { clipPath: "circle(0% at 50% 58%)", scale: 1.6 }, { clipPath: "circle(85% at 50% 58%)", scale: 1.0, duration: 2.0 }, 1.5)
+      .fromTo(q(".pool-main"), { clipPath: "circle(0% at 50% 58%)", backgroundPosition: "50% 40%" }, { clipPath: "circle(85% at 50% 58%)", backgroundPosition: "50% 50%", duration: 2.0 }, 1.5)
       .fromTo(q(".pool-tag-dj"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, 3.2)
       .fromTo(q(".pool-tag-bar"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, 3.5)
       .fromTo(q(".pool-tag-guests"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 }, 3.8)

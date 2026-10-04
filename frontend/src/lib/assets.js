@@ -12,7 +12,8 @@ export const ASSETS = {
 };
 
 export const TABS = [
-  { id: "dress", num: "01", label: "DRESS CODE", short: "DRESS CODE" },
-  { id: "sufi", num: "02", label: "5 DECEMBER", short: "5 DEC" },
-  { id: "daysix", num: "03", label: "6 DECEMBER", short: "6 DEC" },
+  { id: "location", num: "01", label: "Location" },
+  { id: "dress", num: "02", label: "Dress Code" },
+  { id: "sufi", num: "03", label: "5th Dec" },
+  { id: "daysix", num: "04", label: "6th Dec" },
 ];

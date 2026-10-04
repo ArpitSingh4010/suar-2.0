@@ -26,8 +26,8 @@ export const DressCodeEnd = ({ locked, onNavigate }) => {
       <span className="dce-line gold-line" aria-hidden="true" />
       <p className="dce-sub">Continue into the celebration.</p>
       <div className="dce-cards">
-        <TabCard num="02" date="5 DECEMBER" title="Day One Event" locked={locked} onClick={() => onNavigate("sufi")} testId="end-card-sufi" />
-        <TabCard num="03" date="6 DECEMBER" title="Day Two Events" locked={locked} onClick={() => onNavigate("daysix")} testId="end-card-daysix" />
+        <TabCard num="03" date="5th Dec" title="Day One Event" locked={locked} onClick={() => onNavigate("sufi")} testId="end-card-sufi" />
+        <TabCard num="04" date="6th Dec" title="Day Two Events" locked={locked} onClick={() => onNavigate("daysix")} testId="end-card-daysix" />
       </div>
       <footer className="site-foot">
         <span className="font-display">S &amp; N — XXV</span>

@@ -20,16 +20,16 @@ export const SufiNight = ({ data }) => {
     const tl = sceneTimeline(el, 5, reduced);
     tl.fromTo(q(".sufi-particles"), { opacity: 0 }, { opacity: 1, duration: 1 }, 0.3)
       .to(q(".sufi-hint"), { opacity: 0, duration: 0.2 }, 0.1)
-      .fromTo(q(".sufi-img1"), { opacity: 0, scale: 1.3, clipPath: "circle(0% at 50% 60%)" }, { opacity: 1, scale: 1.05, clipPath: "circle(80% at 50% 60%)", duration: 1.6 }, 1.0)
+      .fromTo(q(".sufi-img1"), { opacity: 0, clipPath: "circle(0% at 50% 60%)" }, { opacity: 1, clipPath: "circle(80% at 50% 60%)", duration: 1.6 }, 1.0)
       .fromTo(q(".sufi-eyebrow"), { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5 }, 2.0)
       .fromTo(q(".sufi-title .split-inner"), { yPercent: 115 }, { yPercent: 0, duration: 0.9, stagger: 0.07 }, 2.2)
       .fromTo(q(".sufi-tag"), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6 }, 2.9)
-      .to(q(".sufi-img1"), { xPercent: -8, filter: "brightness(0.35)", duration: 1.2 }, 3.4)
+      .to(q(".sufi-img1"), { backgroundPosition: "40% 50%", filter: "brightness(0.35)", duration: 1.2 }, 3.4)
       .to(q(".sufi-type"), { xPercent: -12, opacity: 0.25, duration: 1.0 }, 3.4)
-      .fromTo(q(".sufi-img2"), { xPercent: 120 }, { xPercent: 0, duration: 1.3 }, 3.4)
-      .fromTo(q(".sufi-img2 img"), { scale: 1.3, xPercent: 10 }, { scale: 1, xPercent: 0, duration: 1.6 }, 3.4)
-      .fromTo(q(".orn-a"), { xPercent: -100, opacity: 0 }, { xPercent: 0, opacity: 1, duration: 1.2 }, 4.0)
-      .fromTo(q(".orn-b"), { xPercent: 100, opacity: 0 }, { xPercent: 0, opacity: 1, duration: 1.2 }, 4.0)
+      .fromTo(q(".sufi-img2"), { clipPath: "inset(0 0 0 100%)" }, { clipPath: "inset(0 0 0 0%)", duration: 1.3 }, 3.4)
+      .fromTo(q(".sufi-img2 img"), { objectPosition: "65% 50%" }, { objectPosition: "50% 50%", duration: 1.6 }, 3.4)
+      .fromTo(q(".orn-a"), { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 1.2 }, 4.0)
+      .fromTo(q(".orn-b"), { scaleX: 0, opacity: 0 }, { scaleX: 1, opacity: 1, duration: 1.2 }, 4.0)
       .to(q(".sufi-img2"), { filter: "brightness(0.3)", duration: 0.8 }, 5.0)
       .fromTo(q(".sufi-final .split-inner"), { yPercent: 115 }, { yPercent: 0, duration: 0.8, stagger: 0.08 }, 5.2);
   });

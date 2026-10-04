@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { GoldParticles } from "./GoldParticles";
 
-const LABEL = { dress: "THE DRESS CODE", sufi: "05 DECEMBER", daysix: "06 DECEMBER" };
+const LABEL = { location: "GOA", dress: "THE DRESS CODE", sufi: "5TH DECEMBER", daysix: "6TH DECEMBER" };
 
 export const TabTransition = ({ target }) => (
   <AnimatePresence>
@@ -29,8 +29,8 @@ export const TabTransition = ({ target }) => (
           {target === "sufi" && <GoldParticles count={90} />}
           <motion.span
             className="tt-label font-display"
-            initial={{ opacity: 0, letterSpacing: "0.9em" }}
-            animate={{ opacity: 1, letterSpacing: "0.4em" }}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.45 }}
           >
             {LABEL[target]}

@@ -1,4 +1,4 @@
-from fastapi import FastAPI, APIRouter, HTTPException, Query
+from fastapi import FastAPI, APIRouter, HTTPException
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -6,7 +6,6 @@ import os
 import math
 import logging
 from pathlib import Path
-from typing import Optional
 from datetime import datetime, timezone, timedelta
 
 ROOT_DIR = Path(__file__).parent
@@ -19,10 +18,18 @@ db = client[os.environ['DB_NAME']]
 app = FastAPI()
 api_router = APIRouter(prefix="/api")
 
+
+@app.middleware("http")
+async def prevent_stale_invitation_access(request, call_next):
+    response = await call_next(request)
+    if request.url.path in {"/api/time", "/api/events", "/api/dress-code"}:
+        response.headers["Cache-Control"] = "no-store"
+    return response
+
 IST = timezone(timedelta(hours=5, minutes=30))
+DRESS_UNLOCK_AT = datetime(2026, 10, 22, 0, 0, 0, tzinfo=IST)
 UNLOCK_AT = datetime(2026, 11, 6, 0, 0, 0, tzinfo=IST)
-EVENT_AT = datetime(2026, 12, 5, 0, 0, 0, tzinfo=IST)
-PREVIEW_KEY = os.environ.get('PREVIEW_KEY')
+EVENT_AT = datetime(2026, 12, 6, 0, 0, 0, tzinfo=IST)
 
 IMG = "https://static.prod-images.emergentagent.com/jobs/5086c2dc-0475-4c4c-899a-06e43db56341/images/"
 
@@ -72,10 +79,14 @@ EVENTS = {
 }
 
 
-def _is_unlocked(now: datetime, key: Optional[str]) -> bool:
-    if now >= UNLOCK_AT:
-        return True
-    return bool(PREVIEW_KEY) and key == PREVIEW_KEY
+def access_at(now: datetime) -> dict:
+    """Only server time can open a chapter; no URL or client-clock bypass."""
+    return {
+        "location": {"unlocked": True, "unlock_at": None},
+        "dress": {"unlocked": now >= DRESS_UNLOCK_AT, "unlock_at": DRESS_UNLOCK_AT.isoformat()},
+        "sufi": {"unlocked": now >= UNLOCK_AT, "unlock_at": UNLOCK_AT.isoformat()},
+        "daysix": {"unlocked": now >= UNLOCK_AT, "unlock_at": UNLOCK_AT.isoformat()},
+    }
 
 
 @api_router.get("/")
@@ -84,7 +95,7 @@ async def root():
 
 
 @api_router.get("/time")
-async def get_time(key: Optional[str] = Query(None)):
+async def get_time():
     now = datetime.now(timezone.utc)
     seconds_to_unlock = max(0, int((UNLOCK_AT - now).total_seconds()))
     days_to_go = max(0, math.ceil((EVENT_AT - now).total_seconds() / 86400))
@@ -92,19 +103,28 @@ async def get_time(key: Optional[str] = Query(None)):
         "server_time": now.isoformat(),
         "unlock_at": UNLOCK_AT.isoformat(),
         "event_at": EVENT_AT.isoformat(),
-        "unlocked": _is_unlocked(now, key),
+        "unlocked": now >= UNLOCK_AT,
+        "dress_unlock_at": DRESS_UNLOCK_AT.isoformat(),
+        "tabs": access_at(now),
         "seconds_to_unlock": seconds_to_unlock,
         "days_to_go": days_to_go,
     }
 
 
 @api_router.get("/events")
-async def get_events(key: Optional[str] = Query(None)):
+async def get_events():
     now = datetime.now(timezone.utc)
-    if not _is_unlocked(now, key):
+    if now < UNLOCK_AT:
         raise HTTPException(status_code=423, detail="You'll have to wait a little more.")
-    await db.reveals.insert_one({"at": now.isoformat(), "preview": bool(key)})
     return EVENTS
+
+
+@api_router.get("/dress-code")
+async def get_dress_code():
+    if datetime.now(timezone.utc) < DRESS_UNLOCK_AT:
+        raise HTTPException(status_code=423, detail="Dress Code unlocks on 22 October 2026 at 12:00 AM IST.")
+    from dress_code import DRESS_CODE
+    return DRESS_CODE
 
 
 app.include_router(api_router)
