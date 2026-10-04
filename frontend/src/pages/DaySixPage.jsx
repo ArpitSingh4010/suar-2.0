@@ -11,7 +11,7 @@ export default function DaySixPage({ events }) {
       <MasqueradeBall data={events.masquerade} />
       <Finale data={events.finale} />
       <footer className="site-foot fin-foot">
-        <span className="font-display">S &amp; N — XXV</span>
+        <span className="font-display">N &amp; S — XXV</span>
         <span>WITH LOVE</span>
       </footer>
     </div>

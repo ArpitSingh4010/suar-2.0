@@ -1,7 +1,7 @@
-# Saket & Neha | XXV — Cinematic Anniversary Invitation
+# Neha & Saket | XXV — Cinematic Anniversary Invitation
 
 ## Original brief
-Create a premium, cinematic, interactive invitation for Saket & Neha's 25th wedding anniversary in Goa, 5–6 December 2026. Preserve luxurious imagery, ambient sound, GSAP ScrollTrigger scenes, Lenis scrolling, progressive server-controlled reveals, and a ceremonial invitation opening.
+Create a premium, cinematic, interactive invitation for Neha & Saket's 25th wedding anniversary in Goa, 5–6 December 2026. Preserve luxurious imagery, ambient sound, GSAP ScrollTrigger scenes, Lenis scrolling, progressive server-controlled reveals, and a ceremonial invitation opening. Latest user instruction puts Neha first everywhere, superseding the original name order.
 
 ## Latest approved request — 4 October 2026
 - Four tabs, exactly: Location, Dress Code, 5th Dec, 6th Dec.
@@ -9,7 +9,7 @@ Create a premium, cinematic, interactive invitation for Saket & Neha's 25th wedd
 - Main countdown target is 6 December 2026, midnight IST. Days are live, not hardcoded to 60. User explicitly approved this interpretation.
 - “The Candle”: complete darkness → one flickering golden candle flame → spreading warm glow revealing deep-red velvet → ceremonial envelope/seal → candle blows out → black → completed invitation and Open invitation button.
 - Keep a more premium ceremonial gold seal sequence within the opening.
-- “The Feather”: fourth-tab entry shows one black feather floating down on crimson, landing on a gold invitation, revealing “S & N | XXV”, then “The Masquerade Ball”.
+- “The Feather”: fourth-tab entry shows one black feather floating down on crimson, landing on a gold invitation, revealing “N & S | XXV”, then “The Masquerade Ball”.
 - Comfortably larger typography across every page for older guests; preserve existing functional scenes and sound.
 - User: “yes everything else works perfectly, just make the changes now”.
 - Follow-up (same session): remove the countdown/timer from the opening; move the candle into a corner once lit so it cannot obstruct the envelope; make the seal visibly break; hide Open invitation until animation finishes; add top-right Skip for returning guests. ALL numerical timers/day counts removed from opening; backend countdown logic and locked-tab countdowns remain.
@@ -42,6 +42,8 @@ Create a premium, cinematic, interactive invitation for Saket & Neha's 25th wedd
 - `design_guidelines.json`: original art direction; this PRD overrides old tab names, dates and type sizes.
 
 ## Implemented 4 October 2026
+- Latest request: “make a small change in all the places. instead of saket and neha, make it neha & saket everywhere”. Updated full names to Neha & Saket (uppercase where existing design uses uppercase) and all initials to N & S. Covers opening, seal, envelope card, navigation/accessibility labels, Goa copy, Location, every footer, Feather card, server-delivered finale, browser title and social metadata.
+- Previous screenshot request also completed with updated names: 16 desktop screenshots across all four tabs/scroll sections plus both opening states. Unlisted review gallery `/invitation-review-4505c989672748858941/index.html`, individual full-size images, downloadable `all-screenshots.zip`. Captured in isolated unlocked browser state; NO guest tabs were unlocked and no preview bypass was added. Screenshots are accessible to anyone with this review link; not an authenticated private gallery.
 - Four-tab navigation and backend-enforced 45-day/30-day release stages.
 - Public Location page; protected Dress Code data endpoint; retired known preview bypass.
 - Corrected all countdown calculations to 6 December 2026.
@@ -53,6 +55,8 @@ Create a premium, cinematic, interactive invitation for Saket & Neha's 25th wedd
 - Regression fixes: rapid header tab selections supersede/cancel previous transitions instead of being ignored; main uses a real boolean `inert` prop; Feather timeline explicitly holds its completed title before fading.
 
 ## Verification
+- Latest name-order change verified in desktop and mobile browser: opening, metadata, Location, Feather initials and server-data finale. Source search found no reversed names/initials in runtime source. Real `/api/` returns `Neha & Saket — XXV`.
+- Screenshot review gallery: 16 image links HTTP200, gallery/ZIP HTTP200, desktop1920/mobile390 with no horizontal overflow. Latest capture evidence: `/root/.emergent/automation_output/20261004_120951`; gallery verification: `20261004_121128`.
 - Final `yarn build`: passed after all opening/navigation changes.
 - Updated opening verified at 1920×800 and 390×844: no countdown/day counter; candle clear of envelope at upper-left; visible seal fracture; CTA absent until full sequence completes; Skip reaches completed invitation; CTA enters Location. No overflow.
 - Live preview APIs: `/api/time` returns correct dates and all three gated tabs locked; `/api/events` and `/api/dress-code` both return 423.
@@ -68,7 +72,7 @@ Create a premium, cinematic, interactive invitation for Saket & Neha's 25th wedd
 
 ## Priorities / next actions
 - P0: None outstanding in requested scope; all reported findings resolved and tested.
-- P1: User review of Candle/Feather pacing and older-guest readability.
+- P1: User review of refreshed 16-screenshot gallery, Candle/Feather pacing and older-guest readability. Guest unlock dates unchanged.
 - P2 (optional): Add confirmed venue/map directions when host supplies venue; not in current scope.
 
 ## Preservation requirements

@@ -31,7 +31,7 @@ export const GoaHero = () => {
       <div className="goa-copy">
         <p className="eyebrow goa-eyebrow" data-testid="goa-location-label">SOMEWHERE ON THE KONKAN COAST</p>
         <Split as="h2" text="GOA" by="char" className="goa-title font-serif" testId="goa-title" />
-        <p className="goa-sub" data-testid="goa-celebration-dates">5 – 6 DECEMBER 2026 · SAKET &amp; NEHA · XXV</p>
+        <p className="goa-sub" data-testid="goa-celebration-dates">5 – 6 DECEMBER 2026 · NEHA &amp; SAKET · XXV</p>
       </div>
       <p className="goa-hint scroll-hint" data-testid="goa-scroll-hint">SCROLL TO ARRIVE</p>
     </section>

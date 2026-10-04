@@ -1,6 +1,6 @@
 const Face = ({ className = "" }) => (
   <div className={`op-seal-face ${className}`}>
-    <span className="op-seal-top font-display">S &amp; N</span>
+    <span className="op-seal-top font-display">N &amp; S</span>
     <span className="op-seal-mid font-display">XXV</span>
     <div className="seal-gleam" />
   </div>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Neha &amp; Saket — Screenshot Review</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Outfit:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box}html{scroll-behavior:smooth;background:#0b090b;color:#f7f0e6}body{margin:0;font:18px/1.6 Outfit,sans-serif}main{max-width:1320px;margin:auto;padding:48px 28px}h1{font:500 54px/1.15 'Cormorant Garamond',serif;margin:12px 0 20px}h2{font-size:22px;font-weight:500;margin:0 0 26px}p{max-width:65ch;color:#d9d0c4}a{color:#f0d393;text-underline-offset:5px}a:focus-visible{outline:2px solid #f0d393;outline-offset:4px}.nav{display:flex;flex-wrap:wrap;gap:12px 28px;padding:24px 0 36px;border-bottom:1px solid #695536}.nav a{padding:8px 0;min-height:44px}section{padding:52px 0 8px;scroll-margin-top:28px}figure{margin:0 0 40px}img{display:block;width:100%;height:auto;aspect-ratio:12/5;object-fit:contain;background:#151215;border:1px solid #473824}figcaption{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:12px 0;color:#e2d8c8}figcaption a{padding:6px 0;min-height:44px}.eyebrow{font-size:16px;color:#d9b674}.download{display:inline-block;padding:10px 0;min-height:44px;margin:12px 0 24px}footer{border-top:1px solid #695536;margin-top:24px;padding:28px 0;color:#d9d0c4}@media(max-width:600px){main{padding:32px 18px}h1{font-size:40px}body{font-size:17px}.nav{gap:8px 20px}section{padding-top:36px}figcaption{font-size:16px;gap:8px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="eyebrow" data-testid="review-label">XXV · VISUAL REVIEW</p>
+    <h1 data-testid="review-title">Neha &amp; Saket</h1>
+    <p data-testid="review-description">Every tab and scroll section, captured in the unlocked preview state. Guest access and the scheduled reveal dates are unchanged.</p>
+    <a class="download" href="all-screenshots.zip" download data-testid="download-all-screenshots">Download all screenshots ↓</a>
+    <nav class="nav" aria-label="Screenshot chapters">
+      <a href="#location" data-testid="review-nav-location">01 Location</a>
+      <a href="#dress" data-testid="review-nav-dress">02 Dress Code</a>
+      <a href="#sufi" data-testid="review-nav-sufi">03 5th Dec</a>
+      <a href="#daysix" data-testid="review-nav-daysix">04 6th Dec</a>
+      <a href="#opening" data-testid="review-nav-opening">The opening</a>
+    </nav>
+  </header>
+  <div id="screenshots" data-testid="screenshot-sections"></div>
+  <footer data-testid="review-footer">N &amp; S | XXV · 5–6 December 2026 · Goa</footer>
+</main>
+<script>
+  const chapters = [
+    ['location','01 — Location',[
+      ['01-location-goa','The Goa arrival'],['02-location-invitation','Location & anniversary invitation']]],
+    ['dress','02 — Dress Code',[
+      ['03-dress-code-overview','Dress Code overview'],['04-yellow-indo-western','5 December — Yellow Indo-Western'],['05-morning-dress-code','6 December morning — The surprise'],['06-evening-dress-code','6 December evening — Tuxedo & gown'],['07-dress-code-closing','Dress Code closing']]],
+    ['sufi','03 — 5th Dec',[
+      ['08-sufi-night','Sufi Night'],['09-sufi-evening','The candlelit evening']]],
+    ['daysix','04 — 6th Dec',[
+      ['10-feather-invitation','The Feather invitation'],['11-bihari-pool-party','Bihari Pool Party'],['12-masquerade-ball','The Masquerade Ball'],['13-finale-anniversary','The anniversary finale'],['14-finale-closing','The closing invitation']]],
+    ['opening','The Candle & the seal',[
+      ['15-candle-and-seal','The Candle and ceremonial seal'],['16-opening-complete','The completed opening invitation']]]
+  ];
+  document.getElementById('screenshots').innerHTML = chapters.map(([id,title,shots])=>`<section id="${id}" data-testid="review-section-${id}"><h2>${title}</h2>${shots.map(([file,label])=>`<figure data-testid="review-shot-${file}"><a href="${file}.jpg" target="_blank" rel="noopener" data-testid="review-image-link-${file}"><img src="${file}.jpg" alt="${label} — Neha and Saket invitation" loading="lazy" width="1920" height="800"></a><figcaption><span>${label}</span><a href="${file}.jpg" target="_blank" rel="noopener" data-testid="review-fullsize-${file}">Full size ↗</a></figcaption></figure>`).join('')}</section>`).join('');
+</script>
+</body>
+</html>

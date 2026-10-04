@@ -7,8 +7,8 @@ export const Nav = ({ active, tabs, onSelect, sound }) => (
   <motion.header className="nav" data-testid="main-nav" initial={{ y: -20, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8 }}>
     <button type="button" onClick={() => onSelect("location")} className="nav-mark font-display"
-      data-testid="nav-monogram" aria-label="Saket and Neha — return to Location">
-      S<span>&amp;</span>N <em>XXV</em>
+      data-testid="nav-monogram" aria-label="Neha & Saket — return to Location">
+      N<span>&amp;</span>S <em>XXV</em>
     </button>
     <nav className="nav-tabs" aria-label="Invitation sections" data-testid="invitation-tabs">
       {TABS.map(t => {

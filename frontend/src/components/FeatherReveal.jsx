@@ -37,7 +37,7 @@ export const FeatherReveal = ({ onComplete }) => {
     <div className="feather-stage">
       <div className="feather-card" data-testid="feather-invitation-card">
         <div className="feather-card-inner">
-          <p className="feather-monogram font-display" data-testid="feather-monogram">S &amp; N | XXV</p>
+          <p className="feather-monogram font-display" data-testid="feather-monogram">N &amp; S | XXV</p>
           <h2 className="feather-title font-serif" data-testid="feather-title">The Masquerade<br />Ball</h2>
           <p className="feather-card-date" data-testid="feather-event-date">6 December 2026 · Evening</p>
         </div>
