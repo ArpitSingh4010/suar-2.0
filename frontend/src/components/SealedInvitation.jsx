@@ -4,7 +4,7 @@ import { ASSETS } from "../lib/assets";
 import { CeremonialSeal } from "./CeremonialSeal";
 import { SoundToggle } from "./SoundToggle";
 
-export const SealedInvitation = ({ onOpen, daysToGo, sound }) => {
+export const SealedInvitation = ({ onOpen, monthsToGo, sound }) => {
   const ref = useRef(null);
   const timeline = useRef(null);
   const exitTween = useRef(null);
@@ -68,9 +68,9 @@ export const SealedInvitation = ({ onOpen, daysToGo, sound }) => {
       <div className="candle-flame"><i /></div><div className="candle-wax"><i /></div><div className="candle-smoke" />
     </div>
     <div className="candle-days-reveal" data-testid="opening-days-reveal">
-      <p className="candle-days-number font-display" data-testid="opening-days-count">{daysToGo ?? "—"}</p>
-      <p className="candle-days-label font-display" data-testid="opening-days-label">{daysToGo === 1 ? "DAY TO GO" : "DAYS TO GO"}</p>
-      {daysToGo === null && <p className="candle-days-status" role="status" data-testid="opening-days-sync-status">Confirming the date…</p>}
+      <p className="candle-days-number font-display" data-testid="opening-days-count">{monthsToGo ?? "—"}</p>
+      <p className="candle-days-label font-display" data-testid="opening-days-label">{monthsToGo === 1 ? "MONTH TO GO" : "MONTHS TO GO"}</p>
+      {monthsToGo === null && <p className="candle-days-status" role="status" data-testid="opening-days-sync-status">Confirming the date…</p>}
     </div>
     <div className="candle-copy" data-testid="opening-completed-invitation" aria-hidden={!ready}>
       <p className="eyebrow" data-testid="opening-anniversary-label">TWENTY-FIVE YEARS OF TOGETHERNESS</p>

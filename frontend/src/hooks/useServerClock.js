@@ -59,9 +59,15 @@ export function useServerClock() {
   const now = sync ? sync.serverMs + Math.max(0, tick - sync.received) : null;
   const eventAt = sync ? Date.parse(sync.event_at) : null;
   const tabs = error ? CLOSED : sync?.tabs || CLOSED;
+  const monthsToGo = now === null ? null : Math.max(
+    0,
+    (new Date(eventAt).getUTCFullYear() - new Date(now).getUTCFullYear()) * 12
+      + new Date(eventAt).getUTCMonth() - new Date(now).getUTCMonth()
+      - (new Date(eventAt).getUTCDate() < new Date(now).getUTCDate() ? 1 : 0),
+  );
   return {
     now, eventAt, tabs, error, synced: !!sync,
-    daysToGo: now === null ? null : Math.max(0, Math.ceil((eventAt - now) / 86400000)),
+    monthsToGo,
     unlocked: tabs.sufi.unlocked,
   };
 }
