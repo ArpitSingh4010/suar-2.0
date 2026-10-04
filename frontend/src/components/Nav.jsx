@@ -26,6 +26,6 @@ export const Nav = ({ active, tabs, onSelect, sound }) => (
         );
       })}
     </nav>
-    <SoundToggle enabled={sound.enabled} onToggle={sound.toggle} />
+    <SoundToggle enabled={sound.enabled} status={sound.status} onToggle={sound.toggle} />
   </motion.header>
 );

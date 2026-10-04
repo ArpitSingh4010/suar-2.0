@@ -29,7 +29,7 @@ export default function App() {
   const [retry, setRetry] = useState(0);
   const timers = useRef([]);
   const lenisRef = useLenis(opened && !pending && !lockedTarget);
-  const sound = useAmbientAudio(opened ? tab : "opening");
+  const sound = useAmbientAudio();
   const dressOpen = clock.tabs.dress.unlocked;
 
   useEffect(() => {
@@ -90,7 +90,7 @@ export default function App() {
       </main>
       {pending === "daysix" ? <FeatherReveal onComplete={finishFeather} /> : <TabTransition target={pending} />}
       <LockedOverlay target={lockedTarget} now={clock.now} unlockAt={clock.tabs[lockedTarget]?.unlock_at} onClose={closeLock} />
-      {!opened && <SealedInvitation onOpen={open} />}
+      {!opened && <SealedInvitation onOpen={open} daysToGo={clock.daysToGo} sound={sound} />}
     </div>
   );
 }
