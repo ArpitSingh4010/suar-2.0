@@ -10,6 +10,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold-soft); out
 .pool-decor figcaption, .locked-note, .sound-toggle, .tt-label { font-size: 1rem; line-height: 1.5; }
 .eyebrow { font-weight: 500; }
 .goa-sub, .scroll-hint, .dce-sub, .tab-card-title, .site-foot, .locked-note { color: #ded2c4; }
+.goa-sub { color: var(--gold-soft); }
 .gold-btn, .ghost-btn { font-size: 1.125rem; min-height: 48px; line-height: 1.5; }
 .gold-btn { padding: 16px 28px; }
 .gold-btn:hover, .gold-btn:focus-visible { letter-spacing: 0; }
