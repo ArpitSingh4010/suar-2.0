@@ -44,6 +44,7 @@
 .op-seal-mid { font-size: 1.8rem; }
 .seal-gleam { position: absolute; inset: 0; border-radius: 50%; background: linear-gradient(115deg, transparent 35%, #fff5cdb3 49%, transparent 63%); background-size: 250% 100%; background-position: 150% 0; mix-blend-mode: screen; }
 .seal-whole, .seal-half { position: absolute; inset: 0; }
+.seal-whole { transform-origin: 50% 85%; }
 .seal-half { opacity: 0; transform-style: preserve-3d; }
 .seal-half-left { clip-path: polygon(0 0, 50% 0, 47% 17%, 54% 30%, 46% 43%, 53% 57%, 48% 72%, 54% 86%, 50% 100%, 0 100%); }
 .seal-half-right { clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%, 54% 86%, 48% 72%, 53% 57%, 46% 43%, 54% 30%, 47% 17%); }
