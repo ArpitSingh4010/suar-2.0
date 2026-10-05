@@ -8,7 +8,7 @@ export const Nav = ({ active, tabs, onSelect, sound }) => (
     animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8 }}>
     <button type="button" onClick={() => onSelect("location")} className="nav-mark font-display"
       data-testid="nav-monogram" aria-label="Neha & Saket — return to Location">
-      N<span>&amp;</span>S <em>XXV</em>
+      N<span>&amp;</span>S <em>25</em>
     </button>
     <nav className="nav-tabs" aria-label="Invitation sections" data-testid="invitation-tabs">
       {TABS.map(t => {

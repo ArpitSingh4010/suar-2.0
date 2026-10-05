@@ -16,7 +16,7 @@ export default function LocationPage({ dressOpen, onNavigate }) {
           <span className="location-teaser-line" aria-hidden="true" />
           <p className="font-serif">Something Exciting Coming Up Soon!</p>
         </div>}
-        <footer className="site-foot" data-testid="location-footer"><span className="font-display">N &amp; S | XXV</span><span>WITH LOVE, ALWAYS</span></footer>
+        <footer className="site-foot" data-testid="location-footer"><span className="font-display">N &amp; S | 25</span><span>WITH LOVE, ALWAYS</span></footer>
       </section>
     </div>
   );
