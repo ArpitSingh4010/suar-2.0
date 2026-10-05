@@ -11,7 +11,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold-soft); out
 .eyebrow { font-weight: 500; }
 .goa-sub, .scroll-hint, .dce-sub, .tab-card-title, .site-foot, .locked-note { color: #ded2c4; }
 .goa-sub { color: var(--gold-soft); }
-.goa-eyebrow, .goa-sub { color: #000; }
+.goa-eyebrow, .goa-sub { color: var(--gold-soft); }
 .gold-btn, .ghost-btn { font-size: 1.125rem; min-height: 48px; line-height: 1.5; }
 .gold-btn { padding: 16px 28px; }
 .gold-btn:hover, .gold-btn:focus-visible { letter-spacing: 0; }
@@ -148,6 +148,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold-soft); out
   .location-teaser p { font-size: 2rem; }
   .goa-title { font-size: 6rem; }
   .goa-eyebrow, .goa-sub { font-size: 1rem; line-height: 1.6; }
+  .goa-eyebrow, .goa-sub { color: #000; }
   .goa-eyebrow { max-width: 26ch; margin-bottom: 16px; }
   .goa-sub { max-width: 26ch; margin-top: 16px; }
   .scroll-hint { bottom: 20px; font-size: 1rem; }
