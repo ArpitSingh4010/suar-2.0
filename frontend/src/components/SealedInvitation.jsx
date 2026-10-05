@@ -47,6 +47,7 @@ export const SealedInvitation = ({ onOpen, monthsToGo, sound }) => {
           .fromTo(q(".candle-smoke"), { opacity: 0, y: 0 }, { opacity: 0.35, y: -22, duration: 1 }, "envelope+=8.7")
           .to(q(".candle-smoke"), { opacity: 0, y: -58, duration: 1.3 }, "envelope+=9.4")
           .to(q(".candle-velvet, .candle-light, .candle-wax"), { opacity: 0, duration: 1.5 }, "envelope+=8.2")
+          .to(q(".candle-anchor"), { x: -180, opacity: 0, duration: 1.2 }, "envelope+=7.8")
           .fromTo(q(".candle-copy"), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 1.2 }, "envelope+=10.9");
       }
       timeline.current = tl;
@@ -75,12 +76,12 @@ export const SealedInvitation = ({ onOpen, monthsToGo, sound }) => {
     <div className="candle-copy" data-testid="opening-completed-invitation" aria-hidden={!ready}>
       <p className="eyebrow" data-testid="opening-anniversary-label">TWENTY-FIVE YEARS OF TOGETHERNESS</p>
       <h1 className="candle-names font-serif" data-testid="opening-names">Neha &amp; Saket</h1>
-      <p className="candle-numeral font-display" data-testid="opening-anniversary-numeral">XXV</p>
+      <p className="candle-numeral font-display" data-testid="opening-anniversary-numeral">25</p>
       <p className="candle-date" data-testid="opening-event-date">6 December 2026 · Goa</p>
     </div>
     <div className="op-stage ceremonial-stage" aria-hidden="true">
       <div className="op-env-wrap" data-testid="ceremonial-envelope"><div className="op-env">
-        <div className="op-env-body" /><div className="op-env-card font-display"><span>N &amp; S | XXV</span><span className="seal-card-date">6 December 2026</span></div>
+        <div className="op-env-body" /><div className="op-env-card font-display"><span>N &amp; S | 25</span><span className="seal-card-date">6 December 2026</span></div>
         <div className="op-env-front" /><div className="op-flap" />
         <CeremonialSeal />
       </div></div>

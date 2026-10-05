@@ -68,7 +68,7 @@ EVENTS = {
     },
     "finale": {
         "names": "NEHA & SAKET",
-        "numeral": "XXV",
+        "numeral": "25",
         "lines": [
             "25 years of love, laughter and memories.",
             "Now, let's celebrate the next chapter together.",
@@ -91,7 +91,7 @@ def access_at(now: datetime) -> dict:
 
 @api_router.get("/")
 async def root():
-    return {"message": "Neha & Saket — XXV"}
+    return {"message": "Neha & Saket — 25"}
 
 
 @api_router.get("/time")

@@ -13,7 +13,7 @@ export default function SufiPage({ events, onNavigate }) {
           <TabCard num="04" date="6th Dec" title="Day Two Events" locked={false} onClick={() => onNavigate("daysix")} testId="sufi-next-card" />
         </div>
         <footer className="site-foot">
-          <span className="font-display">N &amp; S — XXV</span>
+          <span className="font-display">N &amp; S — 25</span>
           <span>GOA · 5–6 DECEMBER 2026</span>
         </footer>
       </section>

@@ -81,6 +81,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--gold-soft); out
 .location-closing { padding: 112px 24px 40px; text-align: center; background: #070708; }
 .location-closing h1 { font-size: 5rem; line-height: 1.15; margin: 24px 0; }
 .location-date { font-size: 2.5rem; color: var(--gold-soft); }
+.location-date span { display: block; }
 .location-note { margin: 16px auto 40px; color: #ded2c4; font-size: 1.25rem; }
 .location-closing .dce-cards { max-width: 580px; }
 .location-teaser { margin: 42px auto 48px; max-width: 660px; padding: 16px 0 28px; color: var(--gold-soft); }
