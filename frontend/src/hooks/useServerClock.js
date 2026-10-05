@@ -2,6 +2,18 @@ import { useEffect, useState } from "react";
 import { fetchTime } from "../lib/api";
 
 const CLOSED = { location: { unlocked: true }, dress: { unlocked: false }, sufi: { unlocked: false }, daysix: { unlocked: false } };
+const EVENT_AT = Date.parse("2026-12-06T00:00:00+05:30");
+
+function calendarMonthsBetween(startMs, endMs) {
+  const start = new Date(startMs);
+  const end = new Date(endMs);
+  return Math.max(
+    0,
+    (end.getUTCFullYear() - start.getUTCFullYear()) * 12
+      + end.getUTCMonth() - start.getUTCMonth()
+      - (end.getUTCDate() < start.getUTCDate() ? 1 : 0),
+  );
+}
 
 export function useServerClock() {
   const [sync, setSync] = useState(null);
@@ -57,14 +69,10 @@ export function useServerClock() {
   // A monotonic clock keeps the countdown smooth even if the device date changes.
   // Access is NEVER inferred from this countdown: only the server's flags grant it.
   const now = sync ? sync.serverMs + Math.max(0, tick - sync.received) : null;
-  const eventAt = sync ? Date.parse(sync.event_at) : null;
+  const eventAt = sync ? Date.parse(sync.event_at) : EVENT_AT;
   const tabs = error ? CLOSED : sync?.tabs || CLOSED;
-  const monthsToGo = now === null ? null : Math.max(
-    0,
-    (new Date(eventAt).getUTCFullYear() - new Date(now).getUTCFullYear()) * 12
-      + new Date(eventAt).getUTCMonth() - new Date(now).getUTCMonth()
-      - (new Date(eventAt).getUTCDate() < new Date(now).getUTCDate() ? 1 : 0),
-  );
+  // The invitation can show an immediate visual countdown while server time syncs.
+  const monthsToGo = calendarMonthsBetween(now ?? Date.now(), eventAt);
   return {
     now, eventAt, tabs, error, synced: !!sync,
     monthsToGo,
