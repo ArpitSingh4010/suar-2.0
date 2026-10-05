@@ -68,7 +68,7 @@
       {
         "stage": 1,
         "name": "Envelope Arrival",
-        "description": "Deep black backdrop (#070708) with subtle crimson velvet gradient ambient light. Centered black textured 3D envelope with gold foil border and gold wax seal monogrammed 'N & S — 25'."
+        "description": "Deep black backdrop (#070708) with subtle crimson velvet gradient ambient light. Centered black textured 3D envelope with gold foil border and gold wax seal monogrammed 'N & S — XXV'."
       },
       {
         "stage": 2,
@@ -173,7 +173,7 @@
       },
       "part_3": {
         "title": "Final Closing Screen",
-        "text": "NEHA & SAKET / 25 / 25 years of love... / 5–6 DECEMBER 2026 / GOA",
+        "text": "NEHA & SAKET / XXV / 25 years of love... / 5–6 DECEMBER 2026 / GOA",
         "cta": "Add to Calendar (.ics download / Google Calendar link) & Interactive Memory Guestbook / Blessing RSVP"
       }
     }
