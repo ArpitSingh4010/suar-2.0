@@ -19,6 +19,7 @@ export const SealedInvitation = ({ onOpen, monthsToGo, sound }) => {
         tl.set(q(".candle-velvet"), { opacity: 0.2, clipPath: "circle(100% at 50% 50%)" })
           .to(q(".candle-days-reveal"), { autoAlpha: 1, duration: 0.3 })
           .to(q(".candle-days-reveal"), { autoAlpha: 0, duration: 0.3 }, "+=2.5")
+          .to(q(".candle-anchor"), { left: -100, opacity: 0, duration: 0.3 })
           .to(q(".candle-copy"), { opacity: 1, duration: 0.7 });
       } else {
         const mobile = window.matchMedia("(max-width: 700px)").matches;
@@ -47,7 +48,7 @@ export const SealedInvitation = ({ onOpen, monthsToGo, sound }) => {
           .fromTo(q(".candle-smoke"), { opacity: 0, y: 0 }, { opacity: 0.35, y: -22, duration: 1 }, "envelope+=8.7")
           .to(q(".candle-smoke"), { opacity: 0, y: -58, duration: 1.3 }, "envelope+=9.4")
           .to(q(".candle-velvet, .candle-light, .candle-wax"), { opacity: 0, duration: 1.5 }, "envelope+=8.2")
-          .to(q(".candle-anchor"), { x: -180, opacity: 0, duration: 1.2 }, "envelope+=7.8")
+          .to(q(".candle-anchor"), { left: -100, opacity: 0, duration: 1.2 }, "envelope+=7.8")
           .fromTo(q(".candle-copy"), { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 1.2 }, "envelope+=10.9");
       }
       timeline.current = tl;

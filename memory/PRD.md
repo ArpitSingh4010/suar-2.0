@@ -1,4 +1,4 @@
-# Neha & Saket | XXV — Cinematic Anniversary Invitation
+# Neha & Saket | 25 — Cinematic Anniversary Invitation
 
 ## Original brief
 Create a premium, cinematic, interactive invitation for Neha & Saket's 25th wedding anniversary in Goa, 5–6 December 2026. Preserve luxurious imagery, ambient sound, GSAP ScrollTrigger scenes, Lenis scrolling, progressive server-controlled reveals, and a ceremonial invitation opening. Latest user instruction puts Neha first everywhere, superseding the original name order.
@@ -9,7 +9,7 @@ Create a premium, cinematic, interactive invitation for Neha & Saket's 25th wedd
 - Main countdown target is 6 December 2026, midnight IST. Days are live, not hardcoded to 60. User explicitly approved this interpretation.
 - “The Candle”: complete darkness → one flickering golden candle flame → spreading warm glow revealing deep-red velvet → ceremonial envelope/seal → candle blows out → black → completed invitation and Open invitation button.
 - Keep a more premium ceremonial gold seal sequence within the opening.
-- “The Feather”: fourth-tab entry shows one black feather floating down on crimson, landing on a gold invitation, revealing “N & S | XXV”, then “The Masquerade Ball”.
+- “The Feather”: fourth-tab entry shows one black feather floating down on crimson, landing on a gold invitation, revealing “N & S | 25”, then “The Masquerade Ball”.
 - Comfortably larger typography across every page for older guests; preserve existing functional scenes and sound.
 - User: “yes everything else works perfectly, just make the changes now”.
 - Follow-up (same session): remove the countdown/timer from the opening; move the candle into a corner once lit so it cannot obstruct the envelope; make the seal visibly break; hide Open invitation until animation finishes; add top-right Skip for returning guests. ALL numerical timers/day counts removed from opening; backend countdown logic and locked-tab countdowns remain.
@@ -55,7 +55,7 @@ Create a premium, cinematic, interactive invitation for Neha & Saket's 25th wedd
 - Regression fixes: rapid header tab selections supersede/cancel previous transitions instead of being ignored; main uses a real boolean `inert` prop; Feather timeline explicitly holds its completed title before fading.
 
 ## Verification
-- Latest name-order change verified in desktop and mobile browser: opening, metadata, Location, Feather initials and server-data finale. Source search found no reversed names/initials in runtime source. Real `/api/` returns `Neha & Saket — XXV`.
+- Latest name-order change verified in desktop and mobile browser: opening, metadata, Location, Feather initials and server-data finale. Source search found no reversed names/initials in runtime source. Real `/api/` returns `Neha & Saket — 25`.
 - Screenshot review gallery: 16 image links HTTP200, gallery/ZIP HTTP200, desktop1920/mobile390 with no horizontal overflow. Latest capture evidence: `/root/.emergent/automation_output/20261004_120951`; gallery verification: `20261004_121128`.
 - Final `yarn build`: passed after all opening/navigation changes.
 - Updated opening verified at 1920×800 and 390×844: no countdown/day counter; candle clear of envelope at upper-left; visible seal fracture; CTA absent until full sequence completes; Skip reaches completed invitation; CTA enters Location. No overflow.
