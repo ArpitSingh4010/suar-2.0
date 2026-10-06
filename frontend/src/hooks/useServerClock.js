@@ -5,8 +5,9 @@ const CLOSED = { location: { unlocked: true }, dress: { unlocked: false }, sufi:
 const EVENT_AT = Date.parse("2026-12-06T00:00:00+05:30");
 
 function calendarMonthsBetween(startMs, endMs) {
-  const start = new Date(startMs);
-  const end = new Date(endMs);
+  const istOffset = 330 * 60 * 1000;
+  const start = new Date(startMs + istOffset);
+  const end = new Date(endMs + istOffset);
   return Math.max(
     0,
     (end.getUTCFullYear() - start.getUTCFullYear()) * 12
